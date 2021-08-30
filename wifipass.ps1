@@ -21,6 +21,3 @@ rm *.xml
 rm *.txt
 cd ..
 rm wipass
-
-# remove ducky payload
-rm wifipass.ps1
